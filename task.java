@@ -20,10 +20,10 @@ public class task
     }    
         
     // заполнение массива. каждая ячейка соответствует кол-ву возможных ходов
-    public static int[][] stepsMatrix() {
+    public static int[][] stepsMatrix(int[][] matr) {
         int[][] matr = new int[8][10];
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 10; j++) {
+        for (int i = 0; i < matr.length; i++) {
+            for (int j = 0; j < matr[0].length; j++) {
                 matr[0][j] = 1;
                 matr[i][0] = 1;
                 if (i > 0 & j > 0) {
@@ -36,8 +36,8 @@ public class task
         
     // вывод массива на экран
     public static void printMatrix(int[][] steps) {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 10; j++) {
+        for (int i = 0; i < steps.length; i++) {
+            for (int j = 0; j < steps[0].length; j++) {
                 System.out.print(steps[i][j] + "\t");
             }
             System.out.println();
