@@ -1,9 +1,22 @@
 public class task
 {
     public static void main(String[] args) {
-        int[][] matrix = stepsMatrix();
-        //printMatrix(matrix);
-        System.out.println("Количество возможных маршрутов до правой нижней клетки равно " + matrix[7][9]);
+        System.out.println("Вот такая нам дана карта: ");
+        int[][] matrix = new int[8][10];
+        int[][] matrix2 = stepsMatrix(matrix);
+        printMatrix(matrix2);
+        System.out.print("Давайте определимся, откуда наша фигура будет стартовать!");
+        Scanner row = new Scanner(System.in);
+        System.out.print("Введите первую координату фигуры: ");
+        int x = row.nextInt();
+        Scanner column = new Scanner(System.in);
+        System.out.print("Введите вторую координату фигуры: ");
+        int y = column.nextInt();
+        System.out.println("Путь фигуры: ");
+        int[][] newmatr = new int[8-x+1][10-y+1];
+        int[][] newmatr2 = stepsMatrix(newmatr);
+        printMatrix(newmatr2);
+        System.out.println("Количество возможных маршрутов для фигуры, которая двигается из точки с координатами [" + x + ", " + y + "] равно: " + newmatr2[newmatr2.length-1][newmatr2[0].length-1]);
     }    
         
     // заполнение массива. каждая ячейка соответствует кол-ву возможных ходов
